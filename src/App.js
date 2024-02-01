@@ -12,25 +12,13 @@ import {
 
 function App() {
   const [mode,setmode]=useState("light")
-  const [myStyle,setmyStyle] = useState({
-    color: 'black',
-    backgroundColor:'white'
-   })
   const togglemode= ()=>{
     if(mode==="light")
     {
-      setmyStyle({
-        color: 'white',
-        backgroundColor:'black'
-       })
       setmode("dark")
       document.body.style.backgroundColor = "#09224e";
     }
     else{
-      setmyStyle({
-        color: 'black',
-        backgroundColor:'white'
-       })  
       setmode("light")
       document.body.style.backgroundColor = "#d2e5d2f0";
     }
@@ -41,7 +29,7 @@ function App() {
     <Navbar title="TextUtils" togglemode={togglemode} mode={mode}/>
       <Routes>
       <Route path="/"element={<Textform mode={mode}/>}/>
-      <Route path="/about" element={<About myStyle={myStyle}/>}/>
+      <Route path="/about" element={<About mode={mode}/>}/>
       </Routes>
     </Router>
     </>
